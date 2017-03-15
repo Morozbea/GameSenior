@@ -6,13 +6,19 @@ using UnityEngine.UI;
 public class GameOverPlattform : MonoBehaviour
 {
 
-    public Text winText;
+    Text winText;
+    Image winBG;
+    Image winBirdWin;
     // Use this for initialization
 
     void Awake()
     {
-        winText = GameObject.Find("Text").GetComponent<Text>();
+        winText = GameObject.Find("TextWin").GetComponent<Text>();
+        winBG = GameObject.Find("ImageWinBG").GetComponent<Image>();
+        winBirdWin = GameObject.Find("ImageBirdWin").GetComponent<Image>();
         winText.enabled = false;
+        winBG.enabled = false;
+        winBirdWin.enabled = false;
     }
     void Start()
     {
@@ -31,8 +37,8 @@ public class GameOverPlattform : MonoBehaviour
             if (coll.gameObject.tag == "Player")
         {
             winText.enabled = true;
-           // Time.timeScale = 0; 
-           
+            winBG.enabled = true;
+            winBirdWin.enabled = true;
         }
     }
 }
