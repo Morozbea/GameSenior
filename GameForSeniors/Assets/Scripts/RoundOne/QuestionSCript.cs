@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class QuestionSCript : MonoBehaviour
 {
+
+    // Denna script är för den första scenen
     GameObject Qbutton1;
     GameObject Qbutton2;
     GameObject Qbutton3;
@@ -50,7 +52,7 @@ public class QuestionSCript : MonoBehaviour
 
         isRightAnswer1 = false;
 
-        time = 20.0f;
+        time = 15.0f;
 
         
     }

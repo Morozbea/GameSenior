@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class GameOverPlattform : MonoBehaviour
+public class GameOverPlattform2 : MonoBehaviour
 {
 
     Text winText;
@@ -33,13 +33,13 @@ public class GameOverPlattform : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isCollided)
+        if (isCollided)
         {
             time -= Time.deltaTime;
-            
+
             if (time <= 0)
             {
-                SceneManager.LoadScene("Question1");
+                SceneManager.LoadScene("Question2");
 
             }
         }
@@ -47,16 +47,16 @@ public class GameOverPlattform : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D coll)
     {
-         Debug.Log("collWincheck");
-            if (coll.gameObject.tag == "Player")
+        Debug.Log("collWincheck");
+        if (coll.gameObject.tag == "Player")
         {
-                 
+
             winText.enabled = true;
             winBG.enabled = true;
             winBirdWin.enabled = true;
             isCollided = true;
-            
-                
+
+
         }
     }
 }
