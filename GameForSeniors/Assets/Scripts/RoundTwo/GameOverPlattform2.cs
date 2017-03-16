@@ -39,7 +39,7 @@ public class GameOverPlattform2 : MonoBehaviour
 
             if (time <= 0)
             {
-                SceneManager.LoadScene("Question2");
+                SceneManager.LoadScene("Question3");
 
             }
         }
