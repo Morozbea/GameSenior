@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/QuestionScene.unity
+- path: Assets/PlatformLevel1.unity
   isLoaded: 1
   isActive: 1

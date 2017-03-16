@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class QuestionSCript : MonoBehaviour
 {
     GameObject Qbutton1;
     GameObject Qbutton2;
     GameObject Qbutton3;
-    GameObject Qbutton4;
-
+    
     GameObject Abutton1;
     GameObject Abutton2;
     GameObject Abutton3;
@@ -20,6 +20,12 @@ public class QuestionSCript : MonoBehaviour
     public Image questionImage;
     public Text questionText;
 
+    bool isRightAnswer1;
+
+    Text ChangeTextInstructions;
+
+    float time;
+
     
     // Use this for initialization
     void Start()
@@ -27,12 +33,13 @@ public class QuestionSCript : MonoBehaviour
         Qbutton1 = GameObject.Find("Button1");
         Qbutton2 = GameObject.Find("Button2");
         Qbutton3 = GameObject.Find("Button3");
-        Qbutton4 = GameObject.Find("Button4");
 
         Abutton1 = GameObject.Find("AButton1");
         Abutton2 = GameObject.Find("AButton2");
         Abutton3 = GameObject.Find("AButton3");
         Abutton4 = GameObject.Find("AButton4");
+
+        ChangeTextInstructions = GameObject.Find("TextInstructions").GetComponent<Text>();
 
         questionImage.enabled = false;
         questionText.enabled = false;
@@ -40,14 +47,37 @@ public class QuestionSCript : MonoBehaviour
         Abutton2.SetActive(false);
         Abutton3.SetActive(false);
         Abutton4.SetActive(false);
-       
 
+        isRightAnswer1 = false;
+
+        time = 20.0f;
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(time);
+        // om rätt svar -> gå till platform spel
+        if(isRightAnswer1)
+        {
+            time -= Time.deltaTime;
+            if(time <= 0)
+            {
+                SceneManager.LoadScene("PlatformLevel1");
+            }
+        }
+        // om det är fel svar -> samma scene med samma fråga just nu kan ändras senare
+        if(!isRightAnswer1)
+        {
+            time -= Time.deltaTime;
+            if(time <= 0)
+            {
+                SceneManager.LoadScene("Question1");
 
+            }
+        }
     }
 
     //bottom skåne
@@ -60,6 +90,29 @@ public class QuestionSCript : MonoBehaviour
         Abutton3.SetActive(true);
         Abutton4.SetActive(true);
     }
+
+    // här kommer 2 metoder för de fyra svar knappar
+    // right answer till onclick i unity
+    public void AnswerIsRight()
+    {
+        //Blue is the right answer -> next is the platform game
+        isRightAnswer1 = true;
+        ChangeTextInstructions.text = "Rätt Svar! Platform spel startar!";
+        questionImage.enabled = true;
+        questionText.enabled = true;
+        Abutton1.SetActive(true);
+        Abutton2.SetActive(false);
+        Abutton3.SetActive(false);
+        Abutton4.SetActive(false);
+
+    }
+
+    // alla fel svar får samma metod eftersom de gör samma sak
+    public void AnswersAreWrong()
+    {
+        isRightAnswer1 = false;
+        ChangeTextInstructions.text = "Fel Svar! Försök svara igen!";
+    }    
 
     //mid mitten av sverige
     public void Question2Pressed()
@@ -85,7 +138,17 @@ public class QuestionSCript : MonoBehaviour
     }
 
 
-    public void CheckAnswer()
+    public void CheckAnswerForQuestion1()
+    {
+
+    }
+
+    public void CheckAnswerForQuestion2()
+    {
+
+    }
+
+    public void CheckAnswerForQuestion3()
     {
 
     }

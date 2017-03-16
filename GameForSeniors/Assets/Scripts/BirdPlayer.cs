@@ -65,7 +65,7 @@ public class BirdPlayer : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            SceneManager.LoadScene("Test1Projekt");
+            SceneManager.LoadScene("PlatformLevel1");
             Debug.Log("collide");
         }
     }
