@@ -65,7 +65,7 @@ public class Question3 : MonoBehaviour
             time -= Time.deltaTime;
             if (time <= 0)
             {
-                SceneManager.LoadScene("PlatformLevel2");
+                SceneManager.LoadScene("PlatformLevel3");
             }
         }
         // om det är fel svar -> samma scene med samma fråga just nu kan ändras senare

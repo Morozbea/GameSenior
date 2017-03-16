@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class BirdPlayer2 : MonoBehaviour
-{
+public class BirdPlayer3 : MonoBehaviour {
 
     GameObject bird;
     // Use this for initialization
@@ -65,7 +64,7 @@ public class BirdPlayer2 : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            SceneManager.LoadScene("PlatformLevel2");
+            SceneManager.LoadScene("PlatformLevel3");
             Debug.Log("collide");
         }
     }
