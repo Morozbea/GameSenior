@@ -9,6 +9,8 @@ public class GameOverPlatform3 : MonoBehaviour {
     Text winText;
     Image winBG;
     Image winBirdWin;
+    GameObject restartButton;
+    GameObject quitGame;
     float time;
     bool isCollided;
     // Use this for initialization
@@ -19,10 +21,14 @@ public class GameOverPlatform3 : MonoBehaviour {
         winText = GameObject.Find("TextWin").GetComponent<Text>();
         winBG = GameObject.Find("ImageWinBG").GetComponent<Image>();
         winBirdWin = GameObject.Find("ImageBirdWin").GetComponent<Image>();
+        restartButton = GameObject.Find("ButtonRestart");
+        quitGame = GameObject.Find("ButtonQuit");
         winText.enabled = false;
         winBG.enabled = false;
         winBirdWin.enabled = false;
         isCollided = false;
+        restartButton.SetActive(false);
+        quitGame.SetActive(false);
     }
     void Start()
     {
@@ -53,6 +59,9 @@ public class GameOverPlatform3 : MonoBehaviour {
             winText.enabled = true;
             winBG.enabled = true;
             winBirdWin.enabled = true;
+            restartButton.SetActive(true);
+            quitGame.SetActive(true);
+
             isCollided = true;
 
 
